@@ -1,6 +1,5 @@
 class DoctorsController < ApplicationController
     before_action :authenticate_user!
-    include Chartkick::Helper
   
     def patients
       @patients = Patient.all
