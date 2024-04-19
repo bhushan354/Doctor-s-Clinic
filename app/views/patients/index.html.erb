@@ -24,12 +24,19 @@
         %>
       </td>
       <td>
-        <%= link_to 'Delete', patient_path(patient), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        <%= link_to 'Delete', patient_path(patient), method: :delete, data: {
+        confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
       </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+  <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <%= value %>
+      </div>
+  <% end %>
 
 <div class="text-center">
   <%= link_to 'Register New Patient', new_patient_path, class: 'btn btn-success'

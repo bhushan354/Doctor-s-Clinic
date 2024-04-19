@@ -29,7 +29,7 @@ class PatientsController < ApplicationController
         end
     end
 
-    def destroy
+    def show
         @patient = current_user.patients.find(params[:id])
         @patient.destroy
         redirect_to patients_path, notice: 'Patient data removed successfully.'
