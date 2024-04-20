@@ -257,10 +257,10 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara
-  chartkick (~> 5.0, >= 5.0.6)
+  chartkick (~> 5.0)
   debug
   devise
-  groupdate
+  groupdate (~> 6.4)
   importmap-rails
   jbuilder
   pg

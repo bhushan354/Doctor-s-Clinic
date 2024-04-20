@@ -1,14 +1,14 @@
-User.create!(
-  email: 'receptionist1@example.com',
-  password: 'password',
-  role: 'receptionist'
-)
+# User.create!(
+#   email: 'receptionist1@example.com',
+#   password: 'password',
+#   role: 'receptionist'
+# )
 
-User.create!(
-  email: 'doctor1@example.com',
-  password: 'password',
-  role: 'doctor'
-)
+# User.create!(
+#   email: 'doctor1@example.com',
+#   password: 'password',
+#   role: 'doctor'
+# )
 
 5.times do |index|
     name = "Name#{index + 1}" 
@@ -18,13 +18,15 @@ User.create!(
     address = "Address #{index + 1}, Amravati, India" 
 
     receptionist = User.find_by(role: 'receptionist')
-    receptionist.patients.create!(
+    receptionist.patients.create(
         user_id: 1,
       name: name,
       phone_number: phone_number,
       birth_date: birth_date,
       gender: gender,
-      address: address
+      address: address,
+      created_at: Time.now + index.days,
+      updated_at: Time.now + index.days
     )
 
     doctor = User.find_by(role: 'doctor')
