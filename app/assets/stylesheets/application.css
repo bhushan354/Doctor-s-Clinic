@@ -1,6 +1,6 @@
 .navbar-custom {
     background-color: #004d80;
-    background-image: linear-gradient(to right, #006ba1, #004d80);
+    background-image: linear-gradient(to right, #3165b3, #1a2b5a);
 }
 
 .nav-link {
@@ -8,7 +8,10 @@
 }
 
 .nav-link:hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
+    background-color: #1a7ecf;
+    border-radius: 6px;
+    color: #fff;
 }
 
 .custom-bg-light-blue {
@@ -43,4 +46,14 @@
 
 .table {
     margin-bottom: 0;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: -ms-flexbox !important;
+        flex-direction: row-reverse;
+        display: flex !important;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    }
 }
