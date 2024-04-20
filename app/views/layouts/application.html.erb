@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <title>Doctors clinic</title>
+    <%= csrf_meta_tags %> <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <%= stylesheet_link_tag 'application' %>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
-
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Doctors Clinic</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
+             <% if current_user.receptionist? %>
+            <li class="nav-item">
+              <%= link_to 'Patients', root_path, class: 'nav-link' %>
+            </li>
+            <% end %> <% if current_user.doctor? %>
+            <li class="nav-item">
+              <%= link_to 'Patients', doctors_patients_path, class: 'nav-link'
+              %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to 'Graph', doctors_chart_path, class: 'nav-link' %>
+            </li>
+            <% end %>
+            <li class="nav-item">
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete,
+              class: 'nav-link' %>
+            </li>
+            <% else %>
+
+            <li class="nav-item">
+              <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
+            </li>
+
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4"><%= yield %></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
