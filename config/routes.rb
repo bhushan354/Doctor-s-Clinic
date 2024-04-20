@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   end
   
   resources :patients
-  
-  get 'doctors/patients', to: 'doctors#patients'
-  get 'doctors/chart', to: 'doctors#chart'
-  
-  root 'patients#index'
+
+  root  'doctors#patients'
+
+  get 'doctors/patients', to: 'doctors#patients', as: 'doctors_patients'
+  get 'doctors/chart', to: 'doctors#chart', as: 'doctors_chart'
 end
