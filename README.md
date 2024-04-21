@@ -1,24 +1,49 @@
-# README
+# Doctor's Clinic
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Presentation video: 
+https://drive.google.com/file/d/1ZzEFSacdrstDH1hh98DDyuMr3VqmlRIO/view
 
-Things you may want to cover:
 
-* Ruby version
+##  Follow following steps to get this app working
 
-* System dependencies
+1 - open your terminal and run following commands : 
+```
+git clone git@github.com:bhushan354/Doctor-s-Clinic.git
 
-* Configuration
+cd Doctor-s-Clinic
+```
 
-* Database creation
+2 - configure the rails/ruby version in GEMFILE 
 
-* Database initialization
+3 - configure your config/database.yml file according to your database 
 
-* How to run the test suite
+4 then run following commands : 
+```
+bundle install
+rails db:drop
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+5 - now to start your webpage on localhost run :
+```
+rails server
+```
 
-* Deployment instructions
+6 - email-password for instanly login
 
-* ...
+```
+For receptionist :=>
+E-mail - receptionist1@example.com
+Password - password
+
+For doctor :=> 
+E-mail - doctor1@example.com
+Password - password
+```
+
+## About me : 
+Name : Bhushan Deshmukh
+LinkedIn : https://www.linkedin.com/in/bhushan-deshmukh-5777851b1/
+Medium : https://medium.com/@deshmukhbhushan380

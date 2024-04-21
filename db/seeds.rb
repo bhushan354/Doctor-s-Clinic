@@ -31,4 +31,4 @@ User.create!(
 
 end
 
-puts 'seed daya success'
+puts 'seed data success'
