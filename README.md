@@ -1,9 +1,5 @@
 # Doctor's Clinic
 
-## Presentation video: 
-https://drive.google.com/file/d/1ZzEFSacdrstDH1hh98DDyuMr3VqmlRIO/view
-
-
 ##  Follow following steps to get this app working
 
 1 - open your terminal and run following commands : 
