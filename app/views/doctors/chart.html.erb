@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <h1 class="my-4 text-center">Patient Registrations Chart</h1>
+        <canvas id="patientsChart" width="800" height="400"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var ctx = document.getElementById('patientsChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: <%= @labels.to_json.html_safe %>,
+          datasets: [{
+            label: 'Number of Patients Registered',
+            data: <%= @data.to_json.html_safe %>,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    });
+  </script>

@@ -1,0 +1,56 @@
+<%= form_with(model: patient, local: true, class: 'needs-validation', novalidate: true) do |form| %>
+  <% if patient.errors.any? %>
+    <div class="alert alert-danger">
+      <h4 class="alert-heading">Oops! <%= pluralize(patient.errors.count, 'error') %> prohibited this patient from being saved:</h4>
+      <ul>
+        <% patient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control', required: true %>
+    <div class="invalid-feedback">
+      Please enter a name.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone_number, class: 'form-label' %>
+    <%= form.text_field :phone_number, class: 'form-control', required: true %>
+    <div class="invalid-feedback">
+      Please enter a valid phone number.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :birth_date, class: 'form-label' %>
+    <%= form.date_field :birth_date, class: 'form-control', required: true %>
+    <div class="invalid-feedback">
+      Please enter a valid birth date.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :gender, class: 'form-label' %>
+    <%= form.select :gender, ['Male', 'Female'], {}, class: 'form-select', required: true %>
+    <div class="invalid-feedback">
+      Please select a gender.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :address, class: 'form-label' %>
+    <%= form.text_area :address, class: 'form-control', rows: 3, required: true %>
+    <div class="invalid-feedback">
+      Please enter an address.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit 'Save', class: 'btn btn-primary' %>
+  </div>
+<% end %>
